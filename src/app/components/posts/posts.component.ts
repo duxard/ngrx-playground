@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { select, Store } from '@ngrx/store';
+import * as PostActions from './store/actions';
+import { Observable } from 'rxjs';
+import { isLoadingSelector } from './store/selectors';
+import { AppStateInterface } from '../../types/appState.interface';
 
 @Component({
   selector: 'app-posts',
@@ -7,9 +12,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostsComponent implements OnInit {
 
-  constructor() { }
+  isLoading$: Observable<boolean>;
+
+  constructor(private store: Store<AppStateInterface>) {
+    this.isLoading$ = this.store.pipe(select(isLoadingSelector));
+  }
 
   ngOnInit(): void {
+    this.store.dispatch(PostActions.getPosts());
   }
 
 }
