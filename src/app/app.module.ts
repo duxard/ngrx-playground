@@ -12,6 +12,8 @@ import { CommonModule } from '@angular/common';
 import { counterReducer } from './components/counter/store/reducers';
 import { CounterModule } from './components/counter/counter.module';
 import { postsReducer } from './components/posts/store/reducers';
+import { ComplexCounterModule } from './components/complex-counter/complex-counter.module';
+import { complexCounterReducer } from './components/complex-counter/store/reducers';
 
 @NgModule({
   declarations: [
@@ -23,9 +25,11 @@ import { postsReducer } from './components/posts/store/reducers';
     AppRoutingModule,
     PostsModule,
     CounterModule,
+    ComplexCounterModule,
     StoreModule.forRoot({
       count: counterReducer,
-      posts: postsReducer
+      posts: postsReducer,
+      complexCounter: complexCounterReducer
     }, {}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
