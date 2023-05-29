@@ -9,7 +9,7 @@ export const initialState: PostsStateInterface = {
 };
 
 // describe all changes to our state
-export const reducers = createReducer(
+export const postsReducer = createReducer(
   initialState,
   on(PostActions.getPosts, (state) => ({...state, isLoading: true})),
   on(PostActions.getPostsSuccess, (state, action) => ({

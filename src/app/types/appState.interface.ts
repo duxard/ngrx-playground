@@ -2,4 +2,5 @@ import { PostsStateInterface } from '../components/posts/types/postsState.interf
 
 export interface AppStateInterface {
   posts: PostsStateInterface;
+  count: number;
 }

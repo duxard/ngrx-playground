@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PostsComponent } from './posts.component';
-import { StoreModule } from '@ngrx/store';
-import { reducers } from './store/reducers';
+// import { StoreModule } from '@ngrx/store';
+// import { postsReducer } from './store/reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { PostsEffects } from './store/effects';
 
@@ -13,7 +13,7 @@ import { PostsEffects } from './store/effects';
   exports: [PostsComponent],
   imports: [
     CommonModule,
-    StoreModule.forFeature('posts', reducers),
+    // StoreModule.forFeature('posts', postsReducer),
     EffectsModule.forFeature([PostsEffects])
   ]
 })

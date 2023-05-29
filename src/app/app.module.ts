@@ -8,7 +8,10 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { PostsModule } from './components/posts/posts.module';
-import {CommonModule} from '@angular/common';
+import { CommonModule } from '@angular/common';
+import { counterReducer } from './components/counter/store/reducers';
+import { CounterModule } from './components/counter/counter.module';
+import { postsReducer } from './components/posts/store/reducers';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,11 @@ import {CommonModule} from '@angular/common';
     CommonModule,
     AppRoutingModule,
     PostsModule,
-    StoreModule.forRoot({}, {}),
+    CounterModule,
+    StoreModule.forRoot({
+      count: counterReducer,
+      posts: postsReducer
+    }, {}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
