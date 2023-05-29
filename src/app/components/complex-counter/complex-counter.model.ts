@@ -1,4 +1,4 @@
 export interface ComplexCounterInterface {
   value: number;
-  max: number
+  max: number | null
 }
