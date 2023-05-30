@@ -14,6 +14,8 @@ import { CounterModule } from './components/counter/counter.module';
 import { postsReducer } from './components/posts/store/reducers';
 import { ComplexCounterModule } from './components/complex-counter/complex-counter.module';
 import { complexCounterReducer } from './components/complex-counter/store/reducers';
+import { CyprusModule } from './components/cyprus/cyprus.module';
+import { cyprusReducer } from './components/cyprus/store/reducers';
 
 @NgModule({
   declarations: [
@@ -26,10 +28,12 @@ import { complexCounterReducer } from './components/complex-counter/store/reduce
     PostsModule,
     CounterModule,
     ComplexCounterModule,
+    CyprusModule,
     StoreModule.forRoot({
       count: counterReducer,
       posts: postsReducer,
-      complexCounter: complexCounterReducer
+      complexCounter: complexCounterReducer,
+      cyprusInfo: cyprusReducer
     }, {}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({

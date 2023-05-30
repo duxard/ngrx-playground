@@ -1,0 +1,12 @@
+<div *ngIf="viewModel$ | async as viewModel">
+  <h3>Cyprus Info:</h3>
+  <ul>
+    <li *ngFor="let city of viewModel.cities">{{city}}</li>
+  </ul>
+  <p>Population: {{viewModel.population}}</p>
+  <p>Currency: {{viewModel.currency}}</p>
+  <p>Donations: {{viewModel.donation}}</p>
+  <button (click)="donate()">Donate to Cyprus</button>
+  <hr>
+</div>
+
